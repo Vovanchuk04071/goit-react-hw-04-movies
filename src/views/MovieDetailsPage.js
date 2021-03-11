@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import axios from "axios";
-import AboutFilm from "../Component/AboutFilm";
-import AdditionalInformation from "../Component/AdditionalInformation";
-import GoBackBtn from "../Component/GoBackBtn";
-import routes from "../routes";
+import React, { Component } from 'react';
+import axios from 'axios';
+import AboutFilm from '../Component/AboutFilm';
+import AdditionalInformation from '../Component/AdditionalInformation';
+import GoBackBtn from '../Component/GoBackBtn';
+import routes from '../routes';
 
 class MovieDetailsPage extends Component {
   state = {
@@ -15,31 +15,29 @@ class MovieDetailsPage extends Component {
     genres: null,
   };
   async componentDidMount() {
-    const keyApi = "af69857f8e14e4764e2ee669c4e0f9ab";
+    const keyApi = 'af69857f8e14e4764e2ee669c4e0f9ab';
     const response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=${keyApi}`
+      `https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=${keyApi}`,
     );
     this.setState({
       ...response.data,
     });
-    // console.log(response.data);
 
     const posterImage = await axios
       .get(`https://image.tmdb.org/t/p/w500/${response.data.poster_path}`)
-      .catch((error) => console.error(error));
+      .catch(error => console.error(error));
 
     if (posterImage) {
       this.setState({
         image: posterImage.config.url,
       });
-      // console.log(this.state);
     }
   }
 
   handleGoBack = () => {
     const { location, history } = this.props;
     console.log(location);
-    history.push(location?.state?.from || routes.home);
+    history.push(location?.state?.from || routes.movies);
   };
 
   render() {

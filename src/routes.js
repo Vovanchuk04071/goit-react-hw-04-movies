@@ -1,5 +1,7 @@
-export default {
-  home: "/",
-  movies: "/movies",
-  moviesDetal: "/movies/:movieId",
+const routes = {
+  home: '/',
+  movies: '/movies',
+  moviesDetal: '/movies/:movieId',
 };
+
+export default routes;

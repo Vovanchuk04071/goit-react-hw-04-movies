@@ -1,8 +1,8 @@
-import React from "react";
-import { Link, Route, withRouter } from "react-router-dom";
-import Cast from "../../views/Cast";
-import Reviews from "../../views/Reviews";
-import styles from "./AdditionalInformation.module.css";
+import React from 'react';
+import { Link, Route, withRouter } from 'react-router-dom';
+import Cast from '../../views/Cast';
+import Reviews from '../../views/Reviews';
+import styles from './AdditionalInformation.module.css';
 
 const AdditionalInformation = ({ match, location }) => {
   return (
