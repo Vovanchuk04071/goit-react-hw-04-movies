@@ -1,0 +1,45 @@
+.wraper {
+    display: grid;
+    grid-gap: 15px;
+    padding: 15px;
+border: 1px solid transparent;
+
+border-bottom: ridge #000;
+    grid-template-areas:
+        "img movie_detal__title movie_detal__title "
+        "img overview overview "
+        "img text text"
+        "img genres genres"
+    ;
+
+    justify-content: start;
+}
+
+
+.img {
+    grid-area: img;
+    width: 200px;
+}
+
+.movie_detal__title {
+    grid-area: movie_detal__title;
+    margin: 0;
+}
+
+.overview {
+    grid-area: overview;
+    margin: 0;
+}
+
+.text {
+    grid-area: text;
+    margin: 0;
+}
+
+.genres {
+    grid-area: genres;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}

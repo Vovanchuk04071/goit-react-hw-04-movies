@@ -1,0 +1,9 @@
+.header {
+    display: grid;
+    justify-content: start;
+    grid-gap: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  border: 1px solid transparent;
+  border-bottom: ridge #000;
+}

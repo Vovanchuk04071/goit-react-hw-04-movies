@@ -1,0 +1,6 @@
+.btn {
+    display: grid;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 200px;
+}

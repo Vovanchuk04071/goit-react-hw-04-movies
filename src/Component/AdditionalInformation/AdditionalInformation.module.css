@@ -1,0 +1,38 @@
+.wraper {
+    display: grid;
+    grid-gap: 15px;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-bottom: ridge #000;
+
+    grid-template-areas:
+        "additional additional additional"
+        "cast cast cast"
+        "reviews reviews reviews"
+        "cast__list cast__list  cast__list"
+        "reviews__list  reviews__list reviews__list"
+    ;
+
+    justify-content: start;
+}
+
+.additional {
+    grid-area: additional;
+}
+
+.cast {
+    grid-area: cast;
+}
+
+.cast__list {
+    grid-area: cast__list;
+
+}
+
+.reviews {
+    grid-area: reviews;
+}
+
+.reviews__list {
+    grid-area: reviews__list;
+}

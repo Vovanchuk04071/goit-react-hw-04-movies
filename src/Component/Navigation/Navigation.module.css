@@ -1,0 +1,18 @@
+.NavLink {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.NavLink__active {
+    composes: NavLink;
+    color: brown;
+}
+
+.header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    grid-gap: 20px;
+}
+
