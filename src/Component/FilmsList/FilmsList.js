@@ -1,13 +1,14 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import styles from "./FilmsList.module.css";
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import styles from './FilmsList.module.css';
+import PropTypes from 'prop-types';
 
 const FilmsList = ({ films, location }) => {
   return (
     <>
       {films && (
         <ul className={styles.item}>
-          {films.map((film) => (
+          {films.map(film => (
             <li key={film.id}>
               <Link
                 to={{
@@ -26,6 +27,11 @@ const FilmsList = ({ films, location }) => {
       )}
     </>
   );
+};
+
+FilmsList.propTypes = {
+  films: PropTypes.array.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default withRouter(FilmsList);

@@ -1,0 +1,11 @@
+.NavLink {
+    list-style: none;
+    font-size: 20px;
+    color: black;
+
+}
+
+.NavLink__active {
+    composes: NavLink;
+    color: brown;
+}

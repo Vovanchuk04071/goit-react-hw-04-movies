@@ -1,5 +1,6 @@
-import React from "react";
-import styles from "./AboutFilm.module.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './AboutFilm.module.css';
 
 const AboutFilm = ({ image, title, overview, genres }) => {
   return (
@@ -18,6 +19,13 @@ const AboutFilm = ({ image, title, overview, genres }) => {
       )}
     </div>
   );
+};
+
+AboutFilm.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  genres: PropTypes.array.isRequired,
 };
 
 export default AboutFilm;

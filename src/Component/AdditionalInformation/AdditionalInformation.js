@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom';
-import Cast from '../../views/Cast';
-import Reviews from '../../views/Reviews';
+import Cast from '../../pages/Cast';
+import Reviews from '../../pages/Reviews';
 import styles from './AdditionalInformation.module.css';
+import PropTypes from 'prop-types';
 
 const AdditionalInformation = ({ match, location }) => {
   return (
@@ -36,6 +37,11 @@ const AdditionalInformation = ({ match, location }) => {
       <Route path={`${match.path}/reviews`} component={Reviews} />
     </>
   );
+};
+
+AdditionalInformation.propTypes = {
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default withRouter(AdditionalInformation);

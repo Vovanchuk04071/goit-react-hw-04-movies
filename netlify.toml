@@ -1,7 +1,19 @@
 [build]
   publish = "build"
 
-[[redirects]] 
+  [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = "200"
+  status = 301
+  force = false
+  query = {path = ":path"}
+  conditions = {Language = ["en"], Country = ["US"], Role = ["admin"]}
+
+## This rule redirects to an external API, signing requests with a secret
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+  force = true # COMMENT: ensure that we always redirect
+  headers = {X-From = "Netlify"}
+  signed = "API_SIGNATURE_TOKEN"

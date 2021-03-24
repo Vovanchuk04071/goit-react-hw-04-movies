@@ -30,7 +30,7 @@ class SearchFilms extends Component {
           autoComplete="off"
           autoFocus
           onChange={this.handleChange}
-        ></input>
+        />
         <button className={styles.btn} type="submit">
           <span>Search</span>
         </button>

@@ -1,19 +1,22 @@
-import React, { Suspense, lazy } from "react";
-import { Route, Switch } from "react-router-dom";
-import AppBar from "./Component/AppBar";
-import routes from "./routes";
+import React, { Suspense, lazy } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import AppBar from './Component/AppBar';
+import routes from './routes';
 
 const HomeView = lazy(() =>
-  import("./views/HomeView.js" /* webpackChunkName: "home-view" */)
+  import('./pages/HomeView.js' /* webpackChunkName: "home-view" */),
 );
+
 const MoviesPage = lazy(() =>
-  import("./views/MoviesPage.js" /* webpackChunkName: "movies-page" */)
+  import('./pages/MoviesPage.js' /* webpackChunkName: "movies-page" */),
 );
+
 const MovieDetailsPage = lazy(() =>
   import(
-    "./views/MovieDetailsPage.js" /* webpackChunkName: "movie-details-page" */
-  )
+    './pages/MovieDetailsPage.js' /* webpackChunkName: "movie-details-page" */
+  ),
 );
+
 function App() {
   return (
     <>
