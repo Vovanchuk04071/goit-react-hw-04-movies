@@ -16,14 +16,12 @@ const loadingCast = ({ params }) => {
 };
 
 const loadingTrandingFilms = () => {
-  const keyApi = 'af69857f8e14e4764e2ee669c4e0f9ab';
   return axios.get(
     `https://api.themoviedb.org/3/trending/all/day?api_key=${keyApi}`,
   );
 };
 
 const loadingChangeFilms = query => {
-  const keyApi = 'af69857f8e14e4764e2ee669c4e0f9ab';
   return axios.get(
     `https://api.themoviedb.org/3/search/movie?api_key=${keyApi}&query=${query}`,
   );
