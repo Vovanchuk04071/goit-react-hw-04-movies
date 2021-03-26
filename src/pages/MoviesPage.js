@@ -7,7 +7,6 @@ import { loadingChangeFilms } from '../config';
 class MoviesPage extends Component {
   state = {
     films: [],
-    query: '',
     error: null,
   };
 
@@ -28,22 +27,18 @@ class MoviesPage extends Component {
     }
   }
 
-  onChangeFilms = async query => {
+  handleChangeQuery = async query => {
     try {
       const { data } = await loadingChangeFilms(query);
 
       this.setState({
-        films: data.results,
+        films: data.results ?? [],
       });
     } catch (error) {
       this.setState({
         error,
       });
     }
-
-    this.setState({
-      query,
-    });
 
     this.props.history.push({
       search: `query=${query}`,
@@ -59,7 +54,7 @@ class MoviesPage extends Component {
           <p>Щось пішло не так</p>
         ) : (
           <>
-            <SearchFilms onSubmit={this.onChangeFilms} />
+            <SearchFilms onSubmit={this.handleChangeQuery} />
             <FilmsList films={films} />
           </>
         )}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CastList from '../Component/CastList';
-import { loadingCast } from '../config';
+import { loadingCast, baseUrlImg } from '../config';
 
 class Cast extends Component {
   state = {
@@ -9,12 +9,10 @@ class Cast extends Component {
   };
 
   async componentDidMount() {
-    const baseUrlImg = 'https://image.tmdb.org/t/p/w500';
-
     try {
       const {
         data: { cast },
-      } = await loadingCast(this.props.match);
+      } = await loadingCast(this.props.match.params.movieId);
 
       const casts = cast.map(({ profile_path, cast_id, name, character }) => ({
         profile_path: profile_path ? `${baseUrlImg}${profile_path}` : null,
@@ -39,11 +37,7 @@ class Cast extends Component {
     return (
       <>
         {error !== null && <p>{error}</p>}
-        {casts.length > 0 ? (
-          <CastList casts={casts} />
-        ) : (
-          <p>We don't have any cast for this movie</p>
-        )}
+        {casts.length > 0 ? <CastList casts={casts} /> : <p>We don't have any cast for this movie</p>}
       </>
     );
   }

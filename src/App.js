@@ -3,19 +3,11 @@ import { Route, Switch } from 'react-router-dom';
 import AppBar from './Component/AppBar';
 import routes from './routes';
 
-const HomeView = lazy(() =>
-  import('./pages/HomeView.js' /* webpackChunkName: "home-view" */),
-);
+const HomeView = lazy(() => import('./pages/HomeView.js' /* webpackChunkName: "home-view" */));
 
-const MoviesPage = lazy(() =>
-  import('./pages/MoviesPage.js' /* webpackChunkName: "movies-page" */),
-);
+const MoviesPage = lazy(() => import('./pages/MoviesPage.js' /* webpackChunkName: "movies-page" */));
 
-const MovieDetailsPage = lazy(() =>
-  import(
-    './pages/MovieDetailsPage.js' /* webpackChunkName: "movie-details-page" */
-  ),
-);
+const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage.js' /* webpackChunkName: "movie-details-page" */));
 
 function App() {
   return (

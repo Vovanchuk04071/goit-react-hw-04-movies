@@ -9,11 +9,15 @@ class HomePage extends Component {
   };
 
   async componentDidMount() {
-    const { data } = await loadingTrandingFilms();
+    const {
+      data: { results: films },
+    } = await loadingTrandingFilms();
+
     this.setState({
-      films: data.results,
+      films,
     });
   }
+
   render() {
     const { films } = this.state;
     return (

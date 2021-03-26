@@ -9,6 +9,7 @@ border-bottom: ridge #000;
         "img movie_detal__title movie_detal__title "
         "img overview overview "
         "img text text"
+        "img title title"
         "img genres genres"
     ;
 
@@ -33,6 +34,11 @@ border-bottom: ridge #000;
 
 .text {
     grid-area: text;
+    margin: 0;
+}
+
+.title {
+    grid-area: title;
     margin: 0;
 }
 

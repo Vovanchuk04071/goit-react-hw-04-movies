@@ -6,25 +6,23 @@ import PropTypes from 'prop-types';
 const FilmsList = ({ films, location }) => {
   return (
     <>
-      {films && (
-        <ul className={styles.item}>
-          {films.map(film => (
-            <li key={film.id}>
-              <Link
-                to={{
-                  pathname: `/movies/${film.id}`,
+      <ul className={styles.item}>
+        {films.map(film => (
+          <li key={film.id}>
+            <Link
+              to={{
+                pathname: `/movies/${film.id}`,
 
-                  state: {
-                    from: location,
-                  },
-                }}
-              >
-                {film.original_title || film.original_name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+                state: {
+                  from: location,
+                },
+              }}
+            >
+              {film.original_title || film.original_name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };

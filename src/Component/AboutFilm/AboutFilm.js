@@ -9,14 +9,12 @@ const AboutFilm = ({ image, title, overview, genres }) => {
       <h1 className={styles.movie_detal__title}>{title}</h1>
       <h2 className={styles.overview}>Overview</h2>
       <p className={styles.text}>{overview}</p>
-      {genres && (
-        <ul className={styles.genres}>
-          <h2>Genres</h2>
-          {genres.map(({ name, id }) => (
-            <li key={id}>{name}</li>
-          ))}
-        </ul>
-      )}
+      <h2 className={styles.title}>Genres</h2>
+      <ul className={styles.genres}>
+        {genres.map(({ name, id }) => (
+          <li key={id}>{name}</li>
+        ))}
+      </ul>
     </div>
   );
 };

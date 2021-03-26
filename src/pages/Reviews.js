@@ -3,16 +3,16 @@ import { loadingReviews } from '../config';
 
 class Reviews extends Component {
   state = {
-    results: [],
+    reviews: [],
     error: null,
   };
 
   async componentDidMount() {
     try {
-      const { data } = await loadingReviews(this.props.match);
+      const { data } = await loadingReviews(this.props.match.params.movieId);
 
       this.setState({
-        results: data.results,
+        reviews: data.results,
       });
     } catch (error) {
       this.setState({
@@ -22,12 +22,12 @@ class Reviews extends Component {
   }
 
   render() {
-    const { results } = this.state;
+    const { reviews } = this.state;
     return (
       <>
-        {results.length > 0 ? (
+        {reviews.length > 0 ? (
           <ul>
-            {results.map(({ id, author, content }) => (
+            {reviews.map(({ id, author, content }) => (
               <li key={id}>
                 <h4>{author}</h4>
                 <p>{content}</p>

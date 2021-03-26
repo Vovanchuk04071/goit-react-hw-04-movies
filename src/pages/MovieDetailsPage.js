@@ -4,37 +4,34 @@ import AdditionalInformation from '../Component/AdditionalInformation';
 import GoBackBtn from '../Component/GoBackBtn';
 import { loadFilms, loadingImgPoster } from '../config';
 import routes from '../routes';
+import baseImg from '../img/baseImg.jpg';
 
 class MovieDetailsPage extends Component {
   state = {
-    title: '',
-    overview: '',
-    image: '',
-    popularity: null,
-    vote_average: null,
-    genres: [],
+    film: {
+      title: '',
+      overview: '',
+      image: '',
+      genres: [],
+    },
     error: null,
   };
 
   async componentDidMount() {
-    const { data } = await loadFilms(this.props.match);
+    const {
+      data: { title, overview, genres, poster_path },
+    } = await loadFilms(this.props.match.params.movieId);
 
-    this.setState(data);
+    let image = baseImg;
 
-    try {
+    if (poster_path) {
       const {
         config: { url },
-      } = await loadingImgPoster(data);
-      if (url) {
-        this.setState({
-          image: url,
-        });
-      }
-    } catch (error) {
-      this.setState({
-        error,
-      });
+      } = await loadingImgPoster(poster_path);
+      image = url;
     }
+
+    this.setState({ film: { title, overview, genres, image } });
   }
 
   handleGoBack = () => {
@@ -43,19 +40,13 @@ class MovieDetailsPage extends Component {
   };
 
   render() {
-    const { image, title, overview, genres } = this.state;
-    const { match } = this.props;
+    const { image, title, overview, genres } = this.state.film;
 
     return (
       <>
         <GoBackBtn onChange={this.handleGoBack} />
-        <AboutFilm
-          image={image}
-          title={title}
-          overview={overview}
-          genres={genres}
-        />
-        <AdditionalInformation match={match} />
+        {genres && <AboutFilm image={image} title={title} overview={overview} genres={genres} />}
+        <AdditionalInformation />
       </>
     );
   }
